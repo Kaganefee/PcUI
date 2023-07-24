@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { image } from '../models/image';
 import { ImageService } from '../services/image.service';
+
 
 @Component({
   selector: 'app-image',
@@ -10,11 +11,12 @@ import { ImageService } from '../services/image.service';
 })
 export class ImageComponent implements OnInit {
   imgs:image[]
-
+  @Input() productId:number;
+ 
   constructor(private imageservice:ImageService) { }
 
   ngOnInit() {
-    this.imageservice.getimages().subscribe(
+    this.imageservice.getimagesbypcid(this.productId).subscribe(
       (response: any) => {
         if (Array.isArray(response.data)) {
           this.imgs = response.data.map(item => {
@@ -32,9 +34,5 @@ export class ImageComponent implements OnInit {
         console.error('Error:', error);
       }
     );
-    
-    
-
   }
-
 }

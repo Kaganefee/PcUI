@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import {  HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import {appRoutes} from 'src/app/routes'
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
@@ -18,15 +18,19 @@ import { ImageComponent } from './image/image.component';
     AppComponent,
     NavComponent,
     PcComponent,
-      ImageComponent
+    ImageComponent
    ],
   imports: [
     BrowserModule,
     AppRoutingModule,HttpClientModule,
     RouterModule.forRoot(appRoutes),
     FormsModule,ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
+
